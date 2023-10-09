@@ -30,8 +30,9 @@ export const HomePage = () => {
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_API_KEY_GOOGLE,
   });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onLoad = useCallback(function callback(map: google.maps.Map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
+    // eslint-disable-line @typescript-eslint/no-explicit-any
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
     console.log(map);
