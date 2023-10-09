@@ -19,18 +19,15 @@ export const HomePage = () => {
     lat: 33.2128,
     lng: -100.2617235,
   };
-  // eslint-disable-next-line
-  // @ts-ignore
+
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_API_KEY_GOOGLE,
   });
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onLoad = useCallback(function callback(map: google.maps.Map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
-    console.log(map);
     setMap(map);
   }, []);
 
