@@ -15,10 +15,6 @@ export const HomePage = () => {
     lat: -3.745,
     lng: -38.523,
   };
-  const position = {
-    lat: 33.2128,
-    lng: -100.2617235,
-  };
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
