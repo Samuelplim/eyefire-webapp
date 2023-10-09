@@ -20,7 +20,6 @@ export const HomePage = () => {
     lng: -100.2617235,
   };
 
-  const [map, setMap] = useState<google.maps.Map | null>(null);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_API_KEY_GOOGLE,
@@ -28,12 +27,9 @@ export const HomePage = () => {
   const onLoad = useCallback(function callback(map: google.maps.Map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
-    setMap(map);
   }, []);
 
-  const onUnmount = useCallback(function callback() {
-    setMap(null);
-  }, []);
+  const onUnmount = useCallback(function callback() {}, []);
 
   useEffect(() => {
     fethEvents()
