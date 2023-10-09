@@ -62,7 +62,6 @@ export const HomePage = () => {
           onUnmount={onUnmount}
         >
           {events && events.map((eventMarker) => _renderMarkers(eventMarker))}
-          <Marker position={position} />
         </GoogleMap>
       ) : (
         <div>
