@@ -1,10 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import {
-  GoogleMap,
-  useJsApiLoader,
-  Marker,
-  GoogleMapProps,
-} from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { fethEvents } from "../services/eonet.services";
 import { Event } from "../interfaces";
 import CustomMarker from "../assets/images/wildfires.png";
@@ -25,6 +20,7 @@ export const HomePage = () => {
     lng: -100.2617235,
   };
   // eslint-disable-next-line
+  // @ts-ignore
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -32,7 +28,6 @@ export const HomePage = () => {
   });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onLoad = useCallback(function callback(map: google.maps.Map) {
-    // eslint-disable-line @typescript-eslint/no-explicit-any
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
     console.log(map);
